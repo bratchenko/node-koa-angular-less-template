@@ -1,0 +1,5 @@
+/.tmp
+/node_modules
+/frontend/bower_components
+/frontend-build
+/config.local.js
