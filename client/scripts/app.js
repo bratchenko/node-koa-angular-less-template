@@ -14,7 +14,7 @@ angular.module('app', [
         });
 
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/servers");
+    $urlRouterProvider.otherwise("/");
 })
 
 .run(function(USER, $rootScope) {
