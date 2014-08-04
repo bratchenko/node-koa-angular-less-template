@@ -7,7 +7,7 @@ var koa = require('koa'),
     ejs = require('koa-ejs'),
     session = require('koa-session'),
     passport = require('koa-passport'),
-    auth = require('./backend/auth'),
+    auth = require('./server/auth'),
     _ = require('lodash'),
     fs = require('fs');
 
@@ -27,10 +27,10 @@ app.use(function *(next) {
 });
 
 if (global.config.environment === 'development') {
-    app.use(koaStatic(__dirname + '/frontend'));
+    app.use(koaStatic(__dirname + '/client'));
     app.use(koaStatic(__dirname + '/.tmp'));
 } else if (global.config.environment === 'production') {
-    app.use(koaStatic(__dirname + '/frontend-build'));
+    app.use(koaStatic(__dirname + '/client-build'));
 } else {
     throw new Error("Unknown config.environment: " + global.config.environment);
 }
@@ -44,7 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 ejs(app, {
-    root: require('path').join(__dirname, global.config.environment === 'production' ? 'frontend-build' : 'frontend'),
+    root: require('path').join(__dirname, global.config.environment === 'production' ? 'client-build' : 'client'),
     viewExt: 'ejs',
     cache: global.config.environment === 'production',
     debug: global.config.environment !== 'production',

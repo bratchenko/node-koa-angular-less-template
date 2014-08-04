@@ -5,9 +5,9 @@ module.exports = function (grunt) {
     grunt.initConfig({
         folders: {
             // configurable paths
-            src: 'frontend',
+            src: 'client',
             tmp: '.tmp',
-            dist: 'frontend-build'
+            dist: 'client-build'
         },
         less: {
             dist: {
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
                     env: {
                         ENVIRONMENT: 'development'
                     },
-                    ignore: ['frontend/*', '.tmp/*'],
+                    ignore: ['client/*', '.tmp/*'],
                     callback: function (nodemon) {
                         nodemon.on('log', function (event) {
                             console.log(event.colour);
@@ -177,7 +177,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask("rev-sourcemaps", "Rename sourcemaps to match revved file", function() {
-        var baseDir = require('path').join(__dirname + '/frontend-build/scripts');
+        var baseDir = require('path').join(__dirname + '/client-build/scripts');
         var files = ['scripts', 'libs'];
 
         for (var idx in files) {
