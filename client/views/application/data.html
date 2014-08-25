@@ -1,0 +1,10 @@
+<accordion>
+    <accordion-group ng-repeat="dataGroup in getDataGroups()" heading="{{$index + 1}}. {{dataGroup.title}}" is-open="dataGroup.isOpen">
+        <div ng-include="'/views/application/data/' + dataGroup.id + '.html'">
+        </div>
+    </accordion-group>
+</accordion>
+
+<div class="next-container">
+    <a ui-sref="application.payment" class="btn btn-primary">Дальше</a>
+</div>

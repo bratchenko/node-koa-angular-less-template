@@ -1,0 +1,27 @@
+<ul class="nav nav-pills nav-application">
+    <li ng-class="{active: $state.includes('application.data')}">
+        <a ui-sref="application.data">
+            <tab-heading>
+                1. Ввод данных
+            </tab-heading>
+        </a>
+    </li>
+    <li ng-class="{active: $state.includes('application.payment')}">
+        <a ui-sref="application.payment">
+            <tab-heading class="ng-scope">
+                2. Оплата
+            </tab-heading>
+        </a>
+    </li>
+    <li ng-class="{active: $state.includes('application.nextAction')}">
+        <a ui-sref="application.nextAction">
+            <tab-heading class="ng-scope">
+                3. Получение паспорта
+            </tab-heading>
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div ui-view></div>
+</div>

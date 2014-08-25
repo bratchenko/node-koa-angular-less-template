@@ -51,7 +51,7 @@ ejs(app, {
     layout: false
 });
 
-app.use(auth.protectPath('/', ['/login', '/logout']));
+app.use(auth.protectPath('/admin', ['/admin/login', '/admin/logout']));
 
 app.use(router(app));
 

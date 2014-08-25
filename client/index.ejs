@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Project name</title>
+    <title>Получение загранпаспорта онлайн</title>
 
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -29,16 +29,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/">Project Name</a>
+              <a class="navbar-brand" href="/">В начало</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="main-navbar-collapse">
               <ul class="nav navbar-nav">
-                <li ui-sref="index" ui-sref-active="active"><a ui-sref="index">Main Page</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a target="_self" href="/logout">Logout</a></li>
+                <li ui-sref="application.data" ui-sref-active="active"><a ui-sref="application.data">Новая заявка</a></li>
+                <li ui-sref="status" ui-sref-active="active"><a ui-sref="status">Проверка состояния заявки</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -56,16 +54,31 @@
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/ng-file-upload/angular-file-upload.js"></script>
+    <script src="/bower_components/angular-local-storage/angular-local-storage.js"></script>
     <!-- endbuild -->
 
     <!-- build:js /scripts/scripts.js -->
     <script src="/scripts/app.js"></script>
 
     <script src="/scripts/controllers/index.js"></script>
+    <script src="/scripts/controllers/application.js"></script>
+    <script src="/scripts/controllers/application/data.js"></script>
+    <script src="/scripts/controllers/application/data/intro.js"></script>
+    <script src="/scripts/controllers/application/data/military-id.js"></script>
+    <script src="/scripts/controllers/application/data/military-registration.js"></script>
+    <script src="/scripts/controllers/application/data/passport.js"></script>
+    <script src="/scripts/controllers/application/data/photo.js"></script>
+    <script src="/scripts/controllers/application/data/prev-passport.js"></script>
+    <script src="/scripts/controllers/application/data/tax-id.js"></script>
+    <script src="/scripts/controllers/application/payment.js"></script>
+    <script src="/scripts/controllers/application/next-action.js"></script>
+
+    <script src="/scripts/directives/upload-image.js"></script>
     <!-- endbuild -->
 
     <script>
-        angular.module('app').constant('USER', <%-JSON.stringify(user)%>);
+        angular.module('app').constant('USER', <%-JSON.stringify(user) || 'null'%>);
     </script>
 
     <script type="text/javascript">

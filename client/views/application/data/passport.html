@@ -1,0 +1,19 @@
+<div ng-controller="ApplicationDataPassportCtrl" class="application-data-passport">
+    <p>
+        Загрузите изображения первой и второй страницы паспорта, а также страницу, на которой расположена последняя запись о регистрации.
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+            <upload-image ng-model="application.passport.firstPage" title="'Первая страница паспорта'"></upload-image>
+        </div>
+        <div class="col-sm-4">
+            <upload-image ng-model="application.passport.secondPage"  title="'Вторая страница паспорта'"></upload-image>
+        </div>
+        <div class="col-sm-4">
+            <upload-image ng-model="application.passport.registrationPage"  title="'Страница последней регистрации'"></upload-image>
+        </div>
+    </div>
+    <div class="next-container">
+        <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+    </div>
+</div>

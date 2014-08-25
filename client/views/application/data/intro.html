@@ -1,0 +1,66 @@
+<div ng-controller="ApplicationDataIntroCtrl">
+    <form class="form">
+        <div class="form-group">
+            <label class="control-label">Фамилия</label>
+            <div class="">
+                <input ng-model="application.general.lastName" class="form-control" placeholder="Введите вашу фамилию">
+                <span class="help-block">На украинском или русском языке. Так, как она указана во внутреннем паспорте.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Имя</label>
+            <div class="">
+                <input ng-model="application.general.firstName" class="form-control" placeholder="Введите ваше имя">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Отчество</label>
+            <div class="">
+                <input ng-model="application.general.middleName" class="form-control" placeholder="Введите ваше отчество">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Пол</label>
+            <div class="">
+                <div class="btn-group">
+                    <label class="btn btn-default" ng-model="application.general.gender" btn-radio="'male'">Мужской</label>
+                    <label class="btn btn-default" ng-model="application.general.gender" btn-radio="'female'">Женский</label>
+                </div>
+                <span class="help-block">Нажмите на нужный вариант, чтобы выбрать его.</span>
+            </div>
+        </div>
+        <div class="form-group" ng-if="application.general.gender === 'male'">
+            <label class="control-label">Есть ли у вас военный билет?</label>
+            <div class="">
+                <div class="btn-group">
+                    <label class="btn btn-default" ng-model="application.general.hasMilitaryId" btn-radio="true">У меня есть военный билет</label>
+                    <label class="btn btn-default" ng-model="application.general.hasMilitaryId" btn-radio="false">У меня нет военного билета</label>
+                </div>
+                <span class="help-block">Если у вас нет военного билета, вам понадобится приписное свидетельство и справка из военкомата о возможности выезда за границы Украины. Если у вас её нет - нажмите <a href="#">как получить справку из военкомата?</a></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Получали ли вы ранее загранпаспорт?</label>
+            <div class="">
+                <div class="btn-group">
+                    <label class="btn btn-default" ng-model="application.general.hasPrevPassport" btn-radio="true">Я ранее получал(а) загранпаспорт</label>
+                    <label class="btn btn-default" ng-model="application.general.hasPrevPassport" btn-radio="false">Я ранее не получал(а) загранпаспрта</label>
+                </div>
+                <span class="help-block">Если вы ранее получали загранпаспорт (или несколько), вам нужно будет указать номер последнего полученного вами загранпаспорта.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Ваш номер телефона</label>
+            <div class="">
+                <input ng-model="application.general.phoneNumber" class="form-control" placeholder="Например, (050) 123-45-67">
+                <span class="help-block">На этот номер вам будут придёт уведомление о готовности вашего загранпаспорта.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label"></label>
+            <div class="">
+                <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+            </div>
+        </div>
+    </form>
+</div>

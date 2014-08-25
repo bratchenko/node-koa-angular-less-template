@@ -1,0 +1,17 @@
+<div ng-controller="ApplicationDataMilitaryIdCtrl" class="application-data-photo">
+    <p>
+        Загрузите изображение вашего военного билета (TODO: какие именно страницы?)
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+            <upload-image ng-model="application.militaryId.image" title="'Ваш военный билет'"></upload-image>
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+    <div class="next-container">
+        <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+    </div>
+</div>

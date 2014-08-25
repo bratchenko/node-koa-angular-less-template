@@ -1,0 +1,16 @@
+<div ng-controller="ApplicationDataMilitaryRegistrationCtrl" class="application-data-military-registration">
+    <p>
+        Загрузите изображение вашего приписного свидетельства и справки из военкомата о возможности выезда за пределы украины.
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+            <upload-image ng-model="application.militaryRegistration.registration" title="'Приписное свидетельство'"></upload-image>
+        </div>
+        <div class="col-sm-4">
+            <upload-image ng-model="application.militaryRegistration.certificate"  title="'Справка о возможности выезда за пределы украины'"></upload-image>
+        </div>
+    </div>
+    <div class="next-container">
+        <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+    </div>
+</div>

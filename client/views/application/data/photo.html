@@ -1,0 +1,29 @@
+<div ng-controller="ApplicationDataPhotoCtrl" class="application-data-photo">
+    <p>
+        Загрузите вашу фотографию. Она должна быть пропорции 3,5x4,5 см. Ваше лицо должно занимать не менее 70% фотографии. Например:
+        <div class="row photo-example">
+            <div class="col-sm-6">
+                <div style="display: inline-block; width: 170px; height: 200px; border: 1px solid #eee"></div>
+                <br/>
+                Хорошая фотография
+            </div>
+            <div class="col-sm-6">
+                <div style="display: inline-block; width: 170px; height: 200px; border: 1px solid #eee"></div>
+                <br/>
+                Плохая фотография
+            </div>
+        </div>
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+            <upload-image ng-model="application.photo.image" title="'Ваша фотография'"></upload-image>
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+    <div class="next-container">
+        <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+    </div>
+</div>

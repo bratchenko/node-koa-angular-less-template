@@ -1,0 +1,26 @@
+<div ng-controller="ApplicationDataTaxIdCtrl" class="application-data-tax-id">
+    <p>
+        Загрузите изображение справки о присвоении идентификационного кода или введите свой идентификационный код в поле справа.
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+            <upload-image ng-model="application.taxId.image" title="'Справка о присвоении идентификационного кода'"></upload-image>
+        </div>
+        <div class="col-sm-2 or-column">
+            <div class="or">
+                или
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form">
+                <div class="form-group">
+                    <label class="form-label">Введите ваш идентификационный код</label>
+                    <input type="text" ng-model="application.taxId.value" placeholder="Пример: 31444027112" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="next-container">
+        <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+    </div>
+</div>

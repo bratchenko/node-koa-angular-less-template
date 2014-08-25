@@ -1,0 +1,11 @@
+<div ng-if="!ngModel">
+    <div ng-if="!isFileUploading" class="btn-upload-container">
+        <div class="btn btn-primary btn-upload" ng-file-select="onFileSelect($files)" data-multiple="false">Добавить изображение</div>
+    </div>
+    <progressbar ng-if="isFileUploading" value="uploadProgress">{{uploadProgress}}%</progressbar>
+    <div class="title">{{title}}</div>
+</div>
+<div ng-if="ngModel">
+    <div class="btn btn-danger btn-xs btn-remove" ng-click="remove()"><i class="glyphicon glyphicon-remove"></i> заменить</div>
+    <a href="{{ngModel}}" class="preview-image" target="_blank"><img ng-src="{{ngModel}}" class="preview-image"/></a>
+</div>

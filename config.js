@@ -10,6 +10,12 @@ var config = {
         host: 'localhost',
         port: '35729',
         enabled: process.env.ENVIRONMENT === "development"
+    },
+
+    s3: {
+        bucket: process.env.S3_BUCKET,
+        key: process.env.S3_KEY,
+        secret: process.env.S3_SECRET
     }
 
 };
