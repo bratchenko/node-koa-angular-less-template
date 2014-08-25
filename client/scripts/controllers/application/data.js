@@ -107,14 +107,9 @@ angular.module('app').controller('ApplicationDataCtrl', function($scope, localSt
 
     $scope.getDataGroups = function() {
         var result = [];
-        var foundFirstNotValid = false;
         for (var name in dataGroups) {
             var dataGroup = dataGroups[name];
             if (dataGroup.isEnabled()) {
-                if (!dataGroup.isValid() && !foundFirstNotValid) {
-                    foundFirstNotValid = true;
-                    dataGroup.isOpen = true;
-                }
                 result.push(dataGroup);
             }
         }
@@ -122,6 +117,17 @@ angular.module('app').controller('ApplicationDataCtrl', function($scope, localSt
             return d1.order - d2.order;
         });
     };
+
+    $scope.openFirstInvalidDataGroup = function() {
+        var foundFirstNotValid = false;
+        $scope.getDataGroups().forEach(function(dataGroup) {
+            if (!dataGroup.isValid() && !foundFirstNotValid) {
+                foundFirstNotValid = true;
+                dataGroup.isOpen = true;
+            }
+        });
+    };
+    $scope.openFirstInvalidDataGroup();
 
     $scope.goToNextGroup = function(group) {
         group.isOpen = false;
@@ -133,6 +139,16 @@ angular.module('app').controller('ApplicationDataCtrl', function($scope, localSt
         } else {
             $state.go('application.payment');
         }
+    };
+
+    $scope.getOpenDataGroup = function() {
+        var result;
+        $scope.getDataGroups().forEach(function(dataGroup) {
+            if (dataGroup.isOpen) {
+                result = dataGroup;
+            }
+        });
+        return result;
     };
 
 });
