@@ -36,8 +36,7 @@ angular.module('app').controller('ApplicationDataCtrl', function($scope, localSt
                     $scope.application.general.gender &&
                     ($scope.application.general.gender === 'female' ||
                          typeof $scope.application.general.hasMilitaryId === 'boolean') &&
-                    typeof $scope.application.general.hasPrevPassport === 'boolean' &&
-                    $scope.application.general.phoneNumber;
+                    typeof $scope.application.general.hasPrevPassport === 'boolean';
             }
         },
         'passport': {

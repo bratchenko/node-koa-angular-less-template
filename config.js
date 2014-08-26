@@ -6,6 +6,8 @@ var config = {
 
     sessionSecret: process.env.SESSION_SECRET || 'your-session-secret',
 
+    mongoUri: process.env.MONGO_URI || '127.0.0.1/passport-application',
+
     livereload: {
         host: 'localhost',
         port: '35729',

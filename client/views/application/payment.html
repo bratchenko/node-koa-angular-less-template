@@ -1,5 +1,11 @@
 <h3>Оплата</h3>
 
-Вы можете оплатить оформление загранпаспорта, нажав на эту кнопку:
+<div ng-show="currentUser">
+    Вы можете оплатить оформление загранпаспорта, нажав на эту кнопку:
 
-<div class="btn btn-primary" ng-click="next()">Оплатить</div>
+    <div class="btn btn-primary" ng-click="next()">Оплатить</div>
+</div>
+
+<div ng-show="!currentUser" ng-include="'/views/login-by-phone.html'">
+
+</div>

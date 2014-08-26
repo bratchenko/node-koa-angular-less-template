@@ -32,7 +32,9 @@
     "load-grunt-tasks": "~0.3.0",
     "lodash": "^2.4.1",
     "moment": "^2.8.2",
+    "mongoose": "^3.9.0",
     "passport-local": "^1.0.0",
+    "q": "^1.0.1",
     "time-grunt": "~0.2.8"
   },
   "devDependencies": {

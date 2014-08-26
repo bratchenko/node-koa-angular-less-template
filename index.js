@@ -8,6 +8,7 @@ var koa = require('koa'),
     session = require('koa-session'),
     passport = require('koa-passport'),
     auth = require('./server/auth'),
+    mongoose = require('mongoose'),
     _ = require('lodash'),
     fs = require('fs');
 
@@ -51,7 +52,7 @@ ejs(app, {
     layout: false
 });
 
-app.use(auth.protectPath('/admin', ['/admin/login', '/admin/logout']));
+app.use(auth.protectAdminOnlyPath('/admin'));
 
 app.use(router(app));
 
@@ -71,6 +72,8 @@ function loadRoutes(path) {
     });
 }
 loadRoutes(__dirname + "/routes");
+
+mongoose.connect(config.mongoUri);
 
 app.listen(global.config.port);
 console.log("Listening at port " + global.config.port);

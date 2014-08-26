@@ -1,0 +1,25 @@
+<div class="alert alert-warning" ng-controller="LoginByPhoneCtrl">
+    <p>Введите свой номер телефона, чтобы получить доступ к своим данным в следующий раз, когда вы зайдёте на сайт.</p>
+    <div class="form-inline">
+        <div class="form-group" ng-if="!pinRequested">
+            Тел.: <input class="form-control" ng-model="credentials.phone" placeholder="напр. (050) 123-45-67"/>
+        </div>
+        <div class="form-group" ng-if="!pinRequested">
+            <div class="btn btn-primary" ng-click="requestPin()" ng-disabled="!credentials.phone">Дальше</div>
+        </div>
+        <div class="form-group" ng-if="pinRequested">
+            На ваш телефон ({{credentials.phone}}) должна прийти СМС с пин-кодом. Введите его:
+        </div>
+        <div class="form-group" ng-if="pinRequested">
+            <input class="form-control" ng-model="credentials.pin" placeholder="напр. 1234"/>
+        </div>
+        <div class="form-group" ng-if="pinRequested">
+            <div class="btn btn-primary" ng-click="logIn()" ng-disabled="!credentials.pin">Запомнить меня</div>
+        </div>
+        <div class="form-group" ng-if="pinRequested">
+            <div ng-click="changePhone()" class="btn btn-default btn-xs">отправить пин-код ещё раз</div>
+            <div ng-click="changePhone()" class="btn btn-default btn-xs">изменить телефон</div>
+        </div>
+    </div>
+    <div ng-show="loginError" class="alert alert-danger">{{loginError}}</div>
+</div>

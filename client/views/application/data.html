@@ -1,3 +1,5 @@
+<div ng-if="!currentUser" ng-include="'/views/login-by-phone.html'"></div>
+
 <accordion>
     <accordion-group ng-repeat="dataGroup in getDataGroups()" heading="{{$index + 1}}. {{dataGroup.title}}" is-open="dataGroup.isOpen">
         <div ng-include="'/views/application/data/' + dataGroup.id + '.html'">
