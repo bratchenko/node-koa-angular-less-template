@@ -1,0 +1,15 @@
+<alert ng-show="loadingData" type="'info'">Loading...</alert>
+
+<div ng-hide="loadingData">
+
+    <table class="table table-bordered">
+        <tr ng-repeat="application in applications">
+            <td>
+                <a ui-sref="admin.application({id: application._id})">
+                    {{application.general.firstName}} {{application.general.middleName}} {{application.general.lastName}}
+                </a>
+            </td>
+        </tr>
+    </table>
+
+</div>

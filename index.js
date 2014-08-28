@@ -53,6 +53,7 @@ ejs(app, {
 });
 
 app.use(auth.protectAdminOnlyPath('/admin'));
+app.use(auth.protectAdminOnlyPath('/api/admin'));
 
 app.use(router(app));
 

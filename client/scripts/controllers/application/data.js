@@ -1,31 +1,7 @@
-angular.module('app').controller('ApplicationDataCtrl', function($scope, localStorageService, $state) {
-
-    var defaultApplication = {
-        general: {
-            hasTaxId: true
-        },
-        passport: {},
-        taxId: {},
-        photo: {},
-        militaryId: {},
-        militaryRegistration: {},
-        prevPassport: {}
-    };
-
-    $scope.application = localStorageService.get('application');
-    if (!$scope.application) {
-        $scope.application = defaultApplication;
-    }
-
-    $scope.$watch('application', function(newValue, oldValue) {
-        if (newValue !== oldValue) {
-            localStorageService.set('application', newValue);
-        }
-    }, true);
-
+angular.module('app').controller('ApplicationDataCtrl', function($scope, $state) {
     var dataGroups = {
-        'intro': {
-            id: 'intro',
+        'general': {
+            id: 'general',
             order: 0,
             title: 'Общая информация',
             isEnabled: function() {return true;},
