@@ -15,5 +15,6 @@
     </div>
     <div class="next-container">
         <div class="btn btn-primary" ng-click="goToNextGroup(dataGroup)" ng-disabled="!dataGroup.isValid()">Дальше</div>
+        <span class="help-block" ng-show="!dataGroup.isValid()">Для продолжения нужно заполнить поля: <span ng-repeat="missingField in getMissingFields()">{{$index === 0 ? '' : ', '}}{{missingField}}</span></span>
     </div>
 </div>

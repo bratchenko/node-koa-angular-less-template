@@ -15,6 +15,9 @@ var ApplicationSchema = mongoose.Schema({
         unique: true
     },
 
+    status: String,
+    comment: String,
+
     general: {
         firstName: String,
         middleName: String,

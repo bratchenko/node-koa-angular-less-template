@@ -9,6 +9,11 @@
                     {{application.general.firstName}} {{application.general.middleName}} {{application.general.lastName}}
                 </a>
             </td>
+            <td>
+                <span ng-show="application.status === 'approved'" class="label label-success">подтверждена</span>
+                <span ng-show="application.status === 'declined'" class="label label-danger">отклонена</span>
+                <span ng-show="!application.status" class="label">рассматривается</span>
+            </td>
         </tr>
     </table>
 

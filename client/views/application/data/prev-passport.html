@@ -15,7 +15,7 @@
             <div class="form">
                 <div class="form-group">
                     <label class="form-label">Введите номер вашего последнего загранпаспорта</label>
-                    <input type="text" ng-model="application.prevPassport.value" placeholder="Пример: EC712412" class="form-control">
+                    <input type="text" ng-model="application.prevPassport.value" ng-required="true" ng-pattern="valuePattern" placeholder="Пример: EC712412" class="form-control">
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
             <div class="form">
                 <div class="form-group">
                     <label class="form-label">Введите ваш идентификационный код</label>
-                    <input type="text" ng-model="application.taxId.value" placeholder="Пример: 31444027112" class="form-control">
+                    <input type="text" ng-model="application.taxId.value" ng-required="true" ng-pattern="taxIdPattern" placeholder="Пример: 31444027112" class="form-control">
                 </div>
             </div>
         </div>

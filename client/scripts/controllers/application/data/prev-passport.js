@@ -4,4 +4,6 @@ angular.module('app').controller('ApplicationDataPrevPassportCtrl', function($sc
         $scope.application.prevPassport = {};
     }
 
+    $scope.valuePattern = /^\w{2}\s*\d{6}$/g;
+
 });

@@ -1,39 +1,75 @@
-<dl>
-    <dt>Имя</dt>
-    <dd>{{application.general.firstName}} {{application.general.middleName}} {{application.general.lastName}}</dd>
-    <dt>Пол</dt>
-    <dd>{{application.general.gender}}</dd>
-    <dt>Военный билет</dt>
-    <dd>{{application.general.hasMilitaryId ? 'да' : 'нет'}}</dd>
-    <dt>Предыдущий загранпаспорт</dt>
-    <dd>{{application.general.hasPrevPassport ? 'да' : 'нет'}}</dd>
-    <dt>Паспорт</dt>
-    <dd>
-        <a href="{{application.passport.firstPage}}"><img style="max-width: 200px;" src="{{application.passport.firstPage}}"/></a>
-        <a href="{{application.passport.secondPage}}"><img style="max-width: 200px;" src="{{application.passport.secondPage}}"/></a>
-        <a href="{{application.passport.registrationPage}}"><img style="max-width: 200px;" src="{{application.passport.registrationPage}}"/></a>
-    </dd>
-    <dt>Код</dt>
-    <dd>
-        {{application.taxId.value}}
-        <a ng-if="application.taxId.image" href="{{application.taxId.image}}"><img style="max-width: 200px;" src="{{application.taxId.image}}"/></a>
-    </dd>
-    <dt>Фото</dt>
-    <dd>
-        <a ng-if="application.photo.image" href="{{application.photo.image}}"><img style="max-width: 200px;" src="{{application.photo.image}}"/></a>
-    </dd>
-    <dt ng-if="application.general.gender === 'male' && application.general.hasMilitaryId">Военный билет</dt>
-    <dd ng-if="application.general.gender === 'male' && application.general.hasMilitaryId">
-        <a ng-if="application.militaryId.image" href="{{application.militaryId.image}}"><img style="max-width: 200px;" src="{{application.militaryId.image}}"/></a>
-    </dd>
-    <dt ng-if="application.general.gender === 'male' && !application.general.hasMilitaryId">Приписное свидетельство</dt>
-    <dd ng-if="application.general.gender === 'male' && !application.general.hasMilitaryId">
-        <a href="{{application.militaryRegistration.registration}}"><img style="max-width: 200px;" src="{{application.militaryRegistration.registration}}"/></a>
-        <a href="{{application.militaryRegistration.certificate}}"><img style="max-width: 200px;" src="{{application.militaryRegistration.certificate}}"/></a>
-    </dd>
-    <dt ng-if="application.general.hasPrevPassport">Предыдущий загранпаспорт</dt>
-    <dd ng-if="application.general.hasPrevPassport">
-        {{application.prevPassport.value}}
-        <a ng-if="application.prevPassport.image" href="{{application.prevPassport.image}}"><img style="max-width: 200px;" src="{{application.prevPassport.image}}"/></a>
-    </dd>
-</dl>
+<table class="table table-bordered">
+    <tr>
+        <td>Имя</td>
+        <td>{{application.general.firstName}} {{application.general.middleName}} {{application.general.lastName}}</td>
+    </tr>
+    <tr>
+        <td>Пол</td>
+        <td>{{application.general.gender}}</td>
+    </tr>
+    <tr>
+        <td>Военный билет</td>
+        <td>{{application.general.hasMilitaryId ? 'да' : 'нет'}}</td>
+    </tr>
+    <tr>
+        <td>Предыдущий загранпаспорт</td>
+        <td>{{application.general.hasPrevPassport ? 'да' : 'нет'}}</td>
+    </tr>
+    <tr>
+        <td>Паспорт</td>
+        <td>
+            <a href="{{application.passport.firstPage}}"><img style="max-width: 200px;" src="{{application.passport.firstPage}}"/></a>
+            <a href="{{application.passport.secondPage}}"><img style="max-width: 200px;" src="{{application.passport.secondPage}}"/></a>
+            <a href="{{application.passport.registrationPage}}"><img style="max-width: 200px;" src="{{application.passport.registrationPage}}"/></a>
+        </td>
+    </tr>
+    <tr>
+        <td>Код</td>
+        <td>
+            {{application.taxId.value}}
+            <a ng-if="application.taxId.image" href="{{application.taxId.image}}"><img style="max-width: 200px;" src="{{application.taxId.image}}"/></a>
+        </td>
+    </tr>
+    <tr>
+        <td>Фото</td>
+        <td>
+            <a ng-if="application.photo.image" href="{{application.photo.image}}"><img style="max-width: 200px;" src="{{application.photo.image}}"/></a>
+        </td>
+    </tr>
+    <tr ng-if="application.general.gender === 'male' && application.general.hasMilitaryId">
+        <td>Военный билет</td>
+        <td>
+            <a ng-if="application.militaryId.image" href="{{application.militaryId.image}}"><img style="max-width: 200px;" src="{{application.militaryId.image}}"/></a>
+        </td>
+    </tr>
+    <tr ng-if="application.general.gender === 'male' && !application.general.hasMilitaryId">
+        <td>Приписное свидетельство</td>
+        <td>
+            <a href="{{application.militaryRegistration.registration}}"><img style="max-width: 200px;" src="{{application.militaryRegistration.registration}}"/></a>
+            <a href="{{application.militaryRegistration.certificate}}"><img style="max-width: 200px;" src="{{application.militaryRegistration.certificate}}"/></a>
+        </td>
+    </tr>
+    <tr ng-if="application.general.hasPrevPassport">
+        <td>Предыдущий загранпаспорт</td>
+        <td>
+            {{application.prevPassport.value}}
+            <a ng-if="application.prevPassport.image" href="{{application.prevPassport.image}}"><img style="max-width: 200px;" src="{{application.prevPassport.image}}"/></a>
+        </td>
+    </tr>
+    <tr>
+</table>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="btn btn-primary" ng-click="approve()">Принять заявку</div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form" role="form">
+            <div class="form-group">
+                <textarea class="form-control"  ng-model="application.comment" placeholder="Комментарий"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="btn btn-danger" ng-click="decline()">Отклонить заявку</div>
+            </div>
+        </div>
+    </div>
+</div>

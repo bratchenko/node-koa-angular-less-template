@@ -126,4 +126,14 @@ angular.module('app').controller('ApplicationDataCtrl', function($scope, $state)
         return result;
     };
 
+    $scope.getInvalidDataGroups = function() {
+        var result = [];
+        $scope.getDataGroups().forEach(function(dataGroup) {
+            if (!dataGroup.isValid()) {
+                result.push(dataGroup);
+            }
+        });
+        return result;
+    };
+
 });
