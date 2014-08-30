@@ -1,16 +1,18 @@
 <div ng-if="!currentUser" ng-include="'/views/login-by-phone.html'"></div>
 
-<accordion>
-    <accordion-group ng-repeat="dataGroup in getDataGroups()" heading="{{$index + 1}}. {{dataGroup.title}}" is-open="dataGroup.isOpen" ng-class="{success: dataGroup.isValid()}">
-        <div ng-include="'/views/application/data/' + dataGroup.id + '.html'">
-        </div>
-    </accordion-group>
-</accordion>
+<div class="application-data">
+    <accordion>
+        <accordion-group ng-repeat="dataGroup in getDataGroups()" heading="{{$index + 1}}. {{dataGroup.title}}" is-open="dataGroup.isOpen" ng-class="{success: dataGroup.isValid()}">
+            <div ng-include="'/views/application/data/' + dataGroup.id + '.html'">
+            </div>
+        </accordion-group>
+    </accordion>
 
-<div class="next-container" ng-show="!getOpenDataGroup()">
-    <a ui-sref="application.payment" class="btn btn-primary" ng-disabled="getInvalidDataGroups().length > 0">Дальше
-    </a>
-    <p class="help-block" ng-if="getInvalidDataGroups().length > 0">
-        Для продолжения нужно заполнить разделы: <span ng-repeat="dataGroup in getInvalidDataGroups()">{{$index === 0 ? '' : ', '}}{{dataGroup.title.toLowerCase()}}</span>
-    </p>
+    <div class="next-container" ng-show="!getOpenDataGroup()">
+        <a ui-sref="application.payment" class="btn btn-primary" ng-disabled="getInvalidDataGroups().length > 0">Дальше
+        </a>
+        <p class="help-block" ng-if="getInvalidDataGroups().length > 0">
+            Для продолжения нужно заполнить разделы: <span ng-repeat="dataGroup in getInvalidDataGroups()">{{$index === 0 ? '' : ', '}}{{dataGroup.title.toLowerCase()}}</span>
+        </p>
+    </div>
 </div>
