@@ -13,5 +13,8 @@
     "angular-local-storage": "~0.0.7",
     "webcam-directive": "~1.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "1.2.23"
+  }
 }
