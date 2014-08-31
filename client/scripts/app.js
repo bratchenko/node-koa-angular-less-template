@@ -3,7 +3,8 @@ angular.module('app', [
     'ui.router',
     'ui.bootstrap',
     'angularFileUpload',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'webcam'
 ])
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {

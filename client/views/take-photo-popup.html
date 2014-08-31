@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h3>Фотография с веб-камеры</h3>
+</div>
+<div class="modal-body">
+    <div ng-show="!isCameraReady">
+        <p class="help-block">Ожидаю готовности камеры.</p>
+        <alert ng-if="cameraError" type="'danger'">{{cameraError}}</alert>
+    </div>
+    <div ng-show="isCameraReady">
+        <webcam on-streaming="onCameraReady(video)" on-access-denied="onAccessDenied()" ng-show="!imageDataUrl"></webcam>
+        <img ng-show="imageDataUrl" ng-src="{{imageDataUrl}}"/>
+    </div>
+</div>
+<div class="modal-footer" ng-show="!imageDataUrl">
+    <div class="btn btn-default" ng-click="close()">Отмена</div>
+    <div class="btn btn-primary" ng-click="makeSnapshot()">Сфотографировать</div>
+</div>
+<div class="modal-footer" ng-show="imageDataUrl">
+    <div class="btn btn-default" ng-click="cancelSnapshot()">Изменить фотографию</div>
+    <div class="btn btn-primary" ng-click="save()">Загрузить</div>
+</div>
