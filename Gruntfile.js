@@ -93,7 +93,7 @@ module.exports = function (grunt) {
             }
         },
         useminPrepare: {
-            html: ['<%=folders.src%>/index.ejs', '<%=folders.src%>/login.ejs'],
+            html: ['<%=folders.src%>/*.ejs'],
             options: {
                 root: '<%= folders.src %>',
                 dest: '<%= folders.dist %>',
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
             }
         },
         usemin: {
-            html: ['<%= folders.dist %>/index.ejs', '<%= folders.dist %>/login.ejs'],
+            html: ['<%= folders.dist %>/*.ejs'],
             css: ['<%= folders.dist %>/styles/{,*/}*.css'],
             options: {
                 assetsDirs: ['<%= folders.dist %>']
