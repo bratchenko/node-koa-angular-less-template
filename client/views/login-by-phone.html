@@ -8,7 +8,7 @@
             <div class="btn btn-primary" ng-click="requestPin()" ng-disabled="!credentials.phone">Дальше</div>
         </div>
         <div class="form-group" ng-if="pinRequested">
-            На ваш телефон ({{credentials.phone}}) должна прийти СМС с пин-кодом. Введите его:
+            На ваш телефон ({{credentials.phone}}) должна прийти СМС с пин-кодом. Введите его (на время теста подходит любое значение):
         </div>
         <div class="form-group" ng-if="pinRequested">
             <input class="form-control" ng-model="credentials.pin" placeholder="напр. 1234"/>

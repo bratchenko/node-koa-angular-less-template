@@ -16,7 +16,8 @@ passport.deserializeUser(function(id, done) {
             return done(null, user);
         })
         .then(null, function(err) {
-            return done(err);
+            console.log(err);
+            return done(null, false);
         });
 });
 
@@ -28,7 +29,18 @@ passport.use(new LocalStrategy(
     function(phone, pin, done) {
         users.findByPhone(phone)
             .then(function(user) {
-                return done(null, user || false);
+                if (user) {
+                    return done(null, user);
+                } else {
+                    users.create({
+                        phone: phone
+                    }).then(function(user) {
+                        return done(null, user);
+                    }).then(null, function(err) {
+                        console.log(err);
+                        return done(err);
+                    });
+                }
             })
             .then(null, function(err) {
                 return done(err);
